@@ -16,10 +16,14 @@ function addBookToLibrary(title, author, pages) {
 function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         console.log(myLibrary.at(i));
-        var div = document.createElement("div");
-        div.innerHTML = myLibrary.at(i).title;
-        div.classList.add("book-card");
-        cardContainer.appendChild(div);
+        var card = bookTemplate.content.cloneNode(true);
+        var title = card.querySelector(".book-title");
+        var author = card.querySelector(".book-author")
+        var pages = card.querySelector(".book-pages");
+        title.textContent = myLibrary.at(i).title;
+        author.textContent = "by: " + myLibrary.at(i).author;
+        pages.textContent = myLibrary.at(i).pages + " pages";
+        cardContainer.appendChild(card);
     }
 }
 
