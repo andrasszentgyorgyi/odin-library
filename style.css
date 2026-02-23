@@ -1,5 +1,5 @@
 * {
-    border: 1px solid red;
+
     margin: 0;
     font-family: "Jersey 25", sans-serif;
     font-weight: 400;
@@ -21,11 +21,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 3px solid black;
 }
 
 .sidebar {
     grid-column: 1/2;
     grid-row: 2/3;
+    border-right: 3px solid black;
 }
 
 .content {
@@ -45,5 +47,30 @@
 .book-card{
     width: 100%;
     height: 100%;
+    border: 2px solid black;
     border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 1fr;
+}
+
+.book-buttons{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid black;
+    
+}
+
+.book-data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.read-btn, .reading-btn, .remove-btn{
+    width: 100%;
+    height: auto;
 }

@@ -23,9 +23,32 @@
             <button id="add-book">NEW BOOK</button>
         </div>
         <div class="content">
-            <div id="cards-container"></div>
+            <div id="cards-container">
+                <div class="book-card">
+                    <div class="book-data">
+                        <h3 class="book-title">TITLE</h3>
+                        <p class="book-author">AUTHOR</p>
+                        <p class="book-pages">300</p>
+                    </div>
+                    <div class="book-buttons">
+                        <input type="image" src="assets/check-circle-outline.svg" class="read-btn">
+                        <input type="image" src="assets/clock-time-eight-outline.svg" class="reading-btn">
+                        <input type="image" src="assets/close-circle.svg" class="remove-btn">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <template id="book-template">
+        <div class="book-card">
+            <h3 class="book-title"></h3>
+            <p class="book-author"></p>
+            <p class="book-pages"></p>
+            <button class="read-btn"></button>
+            <button class="reading-btn"></button>
+            <button class="remove-btn">Remove</button>
+        </div>
+    </template>
 </body>
 
 </html>
