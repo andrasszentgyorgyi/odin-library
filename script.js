@@ -1,5 +1,6 @@
 const myLibrary = [];
 const cardContainer = document.getElementById("cards-container");
+const bookTemplate = document.getElementById("book-template");
 
 function Book(title, author, pages) {
     this.title = title;
