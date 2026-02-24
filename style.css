@@ -63,7 +63,7 @@
 
 .book-data{
     display: grid;
-    grid-template-rows: 5fr 1fr 1fr;
+    grid-template-rows: 5fr 2fr 1fr;
     gap: 10px;
     padding-top: 10px;
 }
@@ -90,4 +90,12 @@
 
 .book-pages{
     font-size: 20px;
+}
+
+.status-read{
+    background-color: rgba(0, 170, 0, 0.804);
+}
+
+.status-reading{
+    background-color: rgba(253, 253, 0, 0.877);
 }
