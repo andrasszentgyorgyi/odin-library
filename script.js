@@ -26,20 +26,36 @@ function displayBooks() {
         let readBtn = card.querySelector(".read-btn");
         let readingBtn = card.querySelector(".reading-btn");
         let removeBtn = card.querySelector(".remove-btn");
-        
-        readBtn.addEventListener("click", function() {
-            if(bookCard.classList.contains("status-reading")){
+
+        readBtn.addEventListener("click", function () {
+            if (bookCard.classList.contains("status-reading")) {
                 bookCard.classList.remove("status-reading")
+                readingBtn.src = "assets/clock-time-eight-outline.svg";
             }
-            bookCard.classList.toggle("status-read");
+            if (bookCard.classList.contains("status-read")) {
+                bookCard.classList.toggle("status-read");
+                readBtn.src = "assets/check-circle-outline.svg";
+            } else if (!bookCard.classList.contains("status-read")){
+                bookCard.classList.toggle("status-read");
+                readBtn.src = "assets/check-circle.svg";
+            }
         });
-        readingBtn.addEventListener("click", function() {
-            if(bookCard.classList.contains("status-read")){
+        readingBtn.addEventListener("click", function () {
+            if (bookCard.classList.contains("status-read")) {
                 bookCard.classList.remove("status-read")
+                readBtn.src = "assets/check-circle-outline.svg";
             }
-            bookCard.classList.toggle("status-reading")
+            if (bookCard.classList.contains("status-reading")) {
+                bookCard.classList.toggle("status-reading");
+                readingBtn.src = "assets/clock-time-eight-outline.svg";
+            } else if (!bookCard.classList.contains("status-reading")){
+                bookCard.classList.toggle("status-reading");
+                readingBtn.src = "assets/clock-time-eight.svg";
+            }
+
         });
-        removeBtn.addEventListener("click", function(){
+        
+        removeBtn.addEventListener("click", function () {
             let targetId = bookCard.dataset.bookId;
             let targetBook = myLibrary.findIndex(obj => obj.id === targetId);
             myLibrary.splice(targetBook, 1);
@@ -59,4 +75,4 @@ addBookToLibrary("Just Kids", "Patti Smith", 320);
 displayBooks();
 
 //TODO:
-//Remove function, switch out SVGs on activation, styling, new book
+//styling, new book
