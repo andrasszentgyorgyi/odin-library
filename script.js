@@ -17,13 +17,16 @@ function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         console.log(myLibrary.at(i));
         let card = bookTemplate.content.cloneNode(true);
+        let bookCard = card.querySelector(".book-card");
+        bookCard.dataset.bookId = myLibrary.at(i).id;
+
         let title = card.querySelector(".book-title");
         let author = card.querySelector(".book-author")
         let pages = card.querySelector(".book-pages");
         let readBtn = card.querySelector(".read-btn");
         let readingBtn = card.querySelector(".reading-btn");
         let removeBtn = card.querySelector(".remove-btn");
-        let bookCard = card.querySelector(".book-card");
+        
         readBtn.addEventListener("click", function() {
             if(bookCard.classList.contains("status-reading")){
                 bookCard.classList.remove("status-reading")
@@ -36,6 +39,12 @@ function displayBooks() {
             }
             bookCard.classList.toggle("status-reading")
         });
+        removeBtn.addEventListener("click", function(){
+            let targetId = bookCard.dataset.bookId;
+            let targetBook = myLibrary.findIndex(obj => obj.id === targetId);
+            myLibrary.splice(targetBook, 1);
+            bookCard.remove();
+        })
         title.textContent = myLibrary.at(i).title;
         author.textContent = "by: " + myLibrary.at(i).author;
         pages.textContent = myLibrary.at(i).pages + " pages";
@@ -47,3 +56,7 @@ addBookToLibrary("Skulduggery Pleasant", "Derek Landy", 384);
 addBookToLibrary("Norwegian Wood", "Haruki Murakami", 390);
 addBookToLibrary("Just Kids", "Patti Smith", 320);
 
+displayBooks();
+
+//TODO:
+//Remove function, switch out SVGs on activation, styling, new book
