@@ -1,39 +1,53 @@
 * {
 
     margin: 0;
-    font-family: "Jersey 25", sans-serif;
+    font-family: "Fjalla One", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 7fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
     height: 100vh;
     width: auto;
+    background-color: #121212;
 }
 
 .header {
-    grid-column: 1 / 3;
     grid-row: 1/2;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.08);
+    background-color: #181818;
+    color: #FFFFFF;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .sidebar {
-    grid-column: 1/2;
-    grid-row: 2/3;
-    border-right: 3px solid black;
+    grid-row: 3/4;
+    border-top: 3px solid rgba(255, 255, 255, 0.08);
+    background-color: #181818;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sidebar button{
+    height: 50px;
+    width: 75px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .content {
-    grid-column: 2/3;
     grid-row: 2/3;
-    height: 100%;
+    overflow-y: auto;
 }
 
 #cards-container{
@@ -47,11 +61,15 @@
 .book-card{
     max-width: 250px;
     max-height: 290px;
-    border: 2px solid black;
+    border: 2px solid #333333;
     border-radius: 10px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 4fr 1fr;
+    background-color: #242424;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6), 
+                0 2px 4px -2px rgba(0, 0, 0, 0.8);
 }
 
 .book-buttons{
@@ -78,6 +96,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .book-title{
@@ -85,17 +105,25 @@
 }
 
 .book-author{
-    font-size: 24px;
-}
-
-.book-pages{
     font-size: 20px;
 }
 
+.book-pages{
+    font-size: 16px;
+}
+
 .status-read{
-    background-color: rgba(0, 170, 0, 0.804);
+    background-color: #1E3A29;
 }
 
 .status-reading{
-    background-color: rgba(253, 253, 0, 0.877);
+    background-color: #59451e;
+}
+
+.book-data h3, p{
+    color: #E0E0E0;
+}
+
+.book-data p{
+    color: #9E9E9E;
 }

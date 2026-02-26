@@ -1,6 +1,17 @@
 const myLibrary = [];
 const cardContainer = document.getElementById("cards-container");
 const bookTemplate = document.getElementById("book-template");
+const addBook = document.getElementById("add-book");
+const newBook = document.getElementById("new-book-dialog");
+const cancelBtn = document.getElementById("cancel-btn");
+const submitBtn = document.getElementById("submit-btn");
+
+let inputTitle = document.getElementById("input-title");
+let inputAuthor = document.getElementById("input-author");
+let inputPages = document.getElementById("input-pages");
+let inputForm = document.getElementById("new-book-form");
+
+newBook.close();
 
 function Book(title, author, pages) {
     this.title = title;
@@ -11,6 +22,10 @@ function Book(title, author, pages) {
 
 function addBookToLibrary(title, author, pages) {
     myLibrary.push(new Book(title, author, pages));
+}
+
+function inputBook(){
+
 }
 
 function displayBooks() {
@@ -72,7 +87,25 @@ addBookToLibrary("Skulduggery Pleasant", "Derek Landy", 384);
 addBookToLibrary("Norwegian Wood", "Haruki Murakami", 390);
 addBookToLibrary("Just Kids", "Patti Smith", 320);
 
-displayBooks();
+addBook.addEventListener("click", function() {
+    newBook.showModal();
+});
 
-//TODO:
-//styling, new book
+cancelBtn.addEventListener("click", function(){
+    newBook.close();
+})
+
+inputForm.addEventListener("submit", function(){
+    event.preventDefault();
+    let title = inputTitle.value;
+    let author = inputAuthor.value;
+    let pages = inputPages.value;
+    addBookToLibrary(title, author, pages);
+    newBook.close();
+    inputForm.reset();
+    cardContainer.innerHTML = "";
+    displayBooks();
+})
+
+
+displayBooks();
